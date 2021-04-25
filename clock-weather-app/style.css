@@ -47,6 +47,11 @@
     width: 50px;
     font-size: 20px;
   }
+  .digital_button:hover {
+    cursor: pointer;
+    background-color: rgb(102, 101, 101);
+    color: rgb(251, 253, 132);
+  }
   
 .analog_clock {
   width: 200px;
