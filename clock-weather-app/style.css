@@ -158,3 +158,56 @@
     align-items: center;
     margin-bottom: 100px;
 }
+.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .weather {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin-left: 30px;
+    border:3px solid rgb(158, 156, 156);
+    margin-bottom: 100px;
+
+  }
+  
+  .weather_top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .weather_temperature {
+    font-size: 48px;
+    font-weight: bold;
+  }
+  .weather_location {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(161, 161, 161);
+  }
+  
+  .weather_main {
+    font-size: 32px;
+    margin-left: 30px;
+    text-align: bottom;
+  }
+  
+  .weather_temps,
+  .weather_others {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  .weather_temps > span,
+  .weather_others > span {
+    color: lightgray;
+  }
