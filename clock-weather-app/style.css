@@ -181,6 +181,15 @@
     align-items: flex-end;
     justify-content: center;
   }
+  .weather_top_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    height: 180px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
   
   .weather_temperature {
     font-size: 48px;
@@ -210,4 +219,8 @@
   .weather_temps > span,
   .weather_others > span {
     color: lightgray;
+  }
+  .weather_icon > img {
+    width: 180px;
+    height: 180px;
   }
