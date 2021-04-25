@@ -1,10 +1,30 @@
+:root[color-theme='light'] {
+    --bodyBackground: aliceblue;
+    --modalBackground: aliceblue;
+    --mainBtnBackground: rgb(54, 116, 248);
+    --toggleBackground: grey;
+}
+
+:root[color-theme='dark'] {
+    --bodyBackground: rgb(71, 71, 71);
+    --modalBackground: aliceblue;
+    --mainBtnBackground: rgb(7, 7, 7);
+    --toggleBackground: rgb(54, 116, 248);
+}
+
+/* html {
+    background: var(--background);
+} */
+
+
 body{
     display: flex;
     width: 100vw;
     height: 100vh;
+    margin:0;
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
+    background-color: var(--bodyBackground);
     transition: all 1.5s;
 }
 .mainBtn{
@@ -12,7 +32,7 @@ body{
     padding: 30px;
     border:3px solid rgb(95, 95, 95);
     border-radius: 10px;
-    background-color: rgb(54, 116, 248);
+    background-color:var(--mainBtnBackground);
     color:aliceblue;
 }
 .modal-container{
@@ -32,13 +52,13 @@ body{
     align-items: center;
     width: 500px;
     font: 30px bold;
-    background-color: aliceblue;
+    background-color: var(--modalBackground);
     border-radius: 30px;
 }
 .modal-toggle{
     width: 80px;
     height: 40px;
-    background-color: grey;
+    background-color: var(--toggleBackground);
     border-radius: 20px;
     padding:5px;
     margin-bottom: 100px;
@@ -50,10 +70,12 @@ body{
     background-color: aliceblue;
     transition: all 1.5s;
 }
-.modal-toggle__circle:active{
-    width:40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: aliceblue;
-    margin-left: 40px;
+.modal-deleteBtn__container{
+    display: flex;
+    justify-content: flex-end;
+    width:100%;
+    margin: 20px;
+}
+p{
+    margin: 10px;
 }

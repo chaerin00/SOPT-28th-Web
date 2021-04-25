@@ -4,10 +4,15 @@ const modalContainer=document.querySelector(".modal-container");
 const modal=document.querySelector('.modal');
 const toggle=document.querySelector('.modal-toggle');
 const toggleCircle=document.querySelector('.modal-toggle__circle');
+const modalDeleteBtn=document.querySelector('.modal-deleteBtn');
+
+window.onload = function () {
+    document.documentElement.setAttribute('color-theme', 'light');//default값은 light
+};
 
 let modalState=false;//false는 안보임 true는 보임
 const clickHandler=(e)=>{
-    if(e.target==mainBtn||e.target==modalContainer){
+    if(e.target==mainBtn||e.target==modalContainer||e.target==modalDeleteBtn){
         if(!modalState){
             modalContainer.style.display='flex';
             modalState=true;
@@ -21,22 +26,21 @@ const clickHandler=(e)=>{
 let darkModeState=false;
 const darkModeHandler=(e)=>{
     if(darkModeState){
-        mainBtn.style.backgroundColor='rgb(54, 116, 248)';
-        body.style.backgroundColor='aliceblue';
         toggleCircle.style.marginLeft='0px';
-        toggle.style.backgroundColor='grey';
         darkModeState=false;
+        document.documentElement.setAttribute('color-theme', 'light');
     }else{
-        mainBtn.style.backgroundColor='grey';
-        body.style.backgroundColor='rgb(0,0,0,0.8)';
         toggleCircle.style.marginLeft='40px';
-        toggle.style.backgroundColor='rgb(54, 116, 248)';
         darkModeState=true;
+        document.documentElement.setAttribute('color-theme', 'dark');
     }
-    modalContainer.style.display='none';
+    modalContainer.style.display='flex';
     modalState=false;
     console.log('darkmode');
 }
 mainBtn.addEventListener('click',clickHandler);
 modalContainer.addEventListener('click',clickHandler);
 toggle.addEventListener('click',darkModeHandler);
+modalContainer.addEventListener('click',clickHandler)
+
+
