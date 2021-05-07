@@ -1,24 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SearchBar from './components/searchBar';
 import UserCard from './components/userCard';
-import {getUserData} from './lib/api';
+import Result from './components/result';
+import { getUserData } from './lib/api';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
 function App() {
-  const [userData,setUserData]=useState(null);
+  const [userData, setUserData] = useState({
+    status: "idle",
+    data: null,
+  });
 
-  const getData=async(name)=>{
-    const data=await getUserData(name);
-    setUserData(data);
+  const getData = async (name) => {
+    setUserData({ ...userData, status: "pending" });
+    try {
+      const data = await getUserData(name);
+      if (data === null) throw Error;
+      setUserData({ status: "resolved", data: data });
+    } catch (e) {
+      setUserData({ status: "rejected", data: null });
+      console.log(e);
+    }
   }
-  // useEffect(()=>{
-  //   getData("chaerin00");
-  //   console.log(userData);
-  // },[])
+
   return (
-    <div>
+    <Container>
       <SearchBar getData={getData}></SearchBar>
-      <UserCard userData={userData}></UserCard>
-    </div>
+      <Result userData={userData} />
+    </Container>
   );
 }
 
