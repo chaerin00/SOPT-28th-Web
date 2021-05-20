@@ -24,7 +24,6 @@ function App() {
       const data = await getUserData(name);
       if (data === null) throw Error;
       setUserData({ status: "resolved", data: data });
-    } catch (e) {
       setUserData({ status: "rejected", data: null });
       console.log(e);
     }

@@ -9,7 +9,7 @@ const MainWrap = Styled.div`
   row-gap: 25px;
 `;
 
-const Main = ({ year, month }) => {
+const Main = ({ year, month, match }) => {
   const [userData, setUserData] = React.useState(null);
   const [rawData, setRawData] = React.useState(null);
 
@@ -20,6 +20,9 @@ const Main = ({ year, month }) => {
       data[year] && setUserData(data[year][month]);
     })();
   }, [year, month]);
+  React.useEffect(() => {
+    console.log(match);
+  }, []);
 
   return (
     <MainWrap>
