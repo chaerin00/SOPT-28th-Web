@@ -1,5 +1,5 @@
 import Main from "./pages/Main";
-import Diary from "./pages/Main";
+import Diary from "./pages/Diary";
 import MainHeader from "./components/common/MainHeader";
 import Calendar from "./components/common/Calendar";
 import Title from "./components/common/Title";
@@ -34,7 +34,16 @@ function App() {
             path="/"
             component={() => <Main year={year} month={month} />}
           />
-          <Route path="/dairy/:id" component={Diary} />
+          <Route
+            exact
+            path="/diary/:id"
+            component={() => <Diary year={year} month={month} />}
+          />
+          <Route
+            exact
+            path="/diary/edit/:id"
+            component={() => <Diary year={year} month={month} />}
+          />
           <Route component={() => <div>Not Found</div>} />
         </Switch>
       </BrowserRouter>

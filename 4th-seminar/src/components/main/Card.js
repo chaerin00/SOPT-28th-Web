@@ -22,6 +22,7 @@ const CardWrap = Styled.div`
       &--photo {
         width: inherit;
         height: inherit;
+        object-fit: cover;
         border-top-left-radius: inherit;
         border-top-right-radius: inherit;
       }
@@ -78,12 +79,12 @@ const getDateFormat = (date) => {
   return `${year}월 ${day}일`;
 };
 
-const Card = ({ props }) => {
+const Card = ({ props, onClickFunc }) => {
   const { date, title, image, weather, tags } = props;
 
   return (
     <CardWrap>
-      <div className="card">
+      <div className="card" onClick={onClickFunc}>
         <div className="card__image">
           {image ? (
             <img className="card__image--photo" src={image} alt="" />
