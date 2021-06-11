@@ -18,7 +18,13 @@ const Diary = ({ year, month, match }) => {
   }, [id]);
   return (
     diaryData && (
-      <Card data={diaryData} rawData={rawData} year={year} month={month} />
+      <Card
+        data={diaryData}
+        setRawData={setRawData}
+        rawData={rawData}
+        year={year}
+        month={month}
+      />
     )
   );
 };

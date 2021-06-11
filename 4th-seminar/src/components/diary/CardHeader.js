@@ -52,7 +52,8 @@ const CardHeader = ({
   handleChange,
   handleEdit,
   match,
-  history
+  history,
+  handleDelete
 }) => {
   const id = match.params.id;
   return (
@@ -79,7 +80,13 @@ const CardHeader = ({
           완료
         </button>
       )}
-      {isReadOnly ? <button className="header__delete">삭제</button> : ""}
+      {isReadOnly ? (
+        <button className="header__delete" onClick={handleDelete}>
+          삭제
+        </button>
+      ) : (
+        ""
+      )}
     </CardHeaderWrap>
   );
 };
